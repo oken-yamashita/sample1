@@ -6,71 +6,72 @@ public class JankenGame {
 
 	public static void main(String[] args) {
 
-		String[] who = {"©•ª","‘Šè"};
+		String[] who = {"è‡ªåˆ†","ç›¸æ‰‹"};
 		int player1 = 0;
 		int player2 = 0;
 
-		//ƒO[F0 ƒ`ƒ‡ƒL: 1 ƒp[: 2
-		player1 = InputGCP(who[0]); //•Ï”player1‚É‚Í 0,1,2‚Ì‚¢‚¸‚ê‚©‚ª‘ã“ü‚³‚ê‚é
-		player2 = makeRandom(who[1]); //•Ï”player2‚É‚Í 0,1,2‚Ì‚¢‚¸‚ê‚©‚ª‘ã“ü‚³‚ê‚é
+		//ã‚°ãƒ¼ï¼š0 ãƒãƒ§ã‚­: 1 ãƒ‘ãƒ¼: 2
+		player1 = InputGCP(who[0]); //å¤‰æ•°player1ã«ã¯ 0,1,2ã®ã„ãšã‚Œã‹ãŒä»£å…¥ã•ã‚Œã‚‹
+		player2 = makeRandom(who[1]); //å¤‰æ•°player2ã«ã¯ 0,1,2ã®ã„ãšã‚Œã‹ãŒä»£å…¥ã•ã‚Œã‚‹
 		Judge(player1,player2);
 	}
 
-	//©•ª‚ªƒO[Aƒ`ƒ‡ƒLAƒp[‚ğ‘I‘ğ‚µ‚Ä“ü—Í‚·‚éƒƒ\ƒbƒh
+	//è‡ªåˆ†ãŒã‚°ãƒ¼ã€ãƒãƒ§ã‚­ã€ãƒ‘ãƒ¼ã‚’é¸æŠã—ã¦å…¥åŠ›ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
 	public static int InputGCP(String who){
 		int input;
 		input = 0;
 
-		System.out.println("‚¶‚á‚ñ‚¯‚ñƒQ[ƒ€‚ğŠJn‚µ‚Ü‚·");
-		System.out.println("ƒO[Aƒ`ƒ‡ƒLAƒp[‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢(”’l‚ğ‘I‘ğ)");
-		System.out.println("ƒO[F0@ƒ`ƒ‡ƒLF1@ƒp[F2");
+		System.out.println("ã˜ã‚ƒã‚“ã‘ã‚“ã‚²ãƒ¼ãƒ ã‚’é–‹å§‹ã—ã¾ã™");
+		System.out.println("ã‚°ãƒ¼ã€ãƒãƒ§ã‚­ã€ãƒ‘ãƒ¼ã‚’é¸æŠã—ã¦ãã ã•ã„(æ•°å€¤ã‚’é¸æŠ)");
+		System.out.println("ã‚°ãƒ¼ï¼š0ã€€ãƒãƒ§ã‚­ï¼š1ã€€ãƒ‘ãƒ¼ï¼š2");
 
 		InputStreamReader isr = new InputStreamReader(System.in);
 		BufferedReader br = new BufferedReader(isr);
 
 		try{
-			String buf = br.readLine(); //ƒCƒ“ƒvƒbƒg‚³‚ê‚½•¶š(0,1,2)‚ğ•Ï”buf‚É‘ã“ü
-			input = Integer.parseInt(buf); //StringŒ^‚Ì•Ï”buf‚ğintŒ^‚É•ÏŠ·‚µ‚Ä•Ï”input‚É‘ã“ü
+			String buf = br.readLine(); //ã‚¤ãƒ³ãƒ—ãƒƒãƒˆã•ã‚ŒãŸæ–‡å­—(0,1,2)ã‚’å¤‰æ•°bufã«ä»£å…¥
+			input = Integer.parseInt(buf); //Stringå‹ã®å¤‰æ•°bufã‚’intå‹ã«å¤‰æ›ã—ã¦å¤‰æ•°inputã«ä»£å…¥
 		}catch(Exception e){
-			//ƒGƒ‰[ˆ—
-			System.out.println("—\Šú‚¹‚Ê“ü—Í‚ª‚³‚ê‚Ü‚µ‚½B‚à‚¤ˆê“x‚â‚è’¼‚µ‚Ä‚­‚¾‚³‚¢B");
+			//ã‚¨ãƒ©ãƒ¼å‡¦ç†
+			System.out.println("äºˆæœŸã›ã¬å…¥åŠ›ãŒã•ã‚Œã¾ã—ãŸã€‚ã‚‚ã†ä¸€åº¦ã‚„ã‚Šç›´ã—ã¦ãã ã•ã„ã€‚");
 		}
 
 		if(input == 0 || input == 1 || input == 2 ){
 			Print(who,input);
 		}
 		else{
-			System.out.println("0`2‚Ì”ÍˆÍ‚Å®”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
-			System.exit(0); //‹­§I—¹
+			System.out.println("0ï½2ã®ç¯„å›²ã§æ•´æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚");
+			System.exit(0); //å¼·åˆ¶çµ‚äº†
 		}
 		return input;
 	}
 
-	//—”‚ğ¶¬‚µ‚Ä‘Šè‚ªƒO[Aƒ`ƒ‡ƒLAƒp[‚Ì‚Ç‚ê‚ğ‚¾‚·‚Ì‚©Œˆ’è‚·‚éƒƒ\ƒbƒh
+	//ä¹±æ•°ã‚’ç”Ÿæˆã—ã¦ç›¸æ‰‹ãŒã‚°ãƒ¼ã€ãƒãƒ§ã‚­ã€ãƒ‘ãƒ¼ã®ã©ã‚Œã‚’ã ã™ã®ã‹æ±ºå®šã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
 	public static int makeRandom(String who){
 		Random r = new Random();
-		int r_num = r.nextInt(3); //•Ï”r_num‚É‚Í0,1,2‚Ì‚¢‚¸‚ê‚©‚Ì’l‚ª‘ã“ü‚³‚ê‚é
+		int r_num = r.nextInt(3); //å¤‰æ•°r_numã«ã¯0,1,2ã®ã„ãšã‚Œã‹ã®å€¤ãŒä»£å…¥ã•ã‚Œã‚‹
 		Print(who,r_num);
 		return r_num;
 	}
 
-	//©•ª‚Æ‘Šè‚ª‚È‚É‚ğ‚¾‚µ‚½‚Ì‚©ƒvƒŠƒ“ƒg‚·‚éƒƒ\ƒbƒh
+	//è‡ªåˆ†ã¨ç›¸æ‰‹ãŒãªã«ã‚’ã ã—ãŸã®ã‹ãƒ—ãƒªãƒ³ãƒˆã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
 	public static void Print(String who,int input){
-		String[] GCP = {"ƒO[","ƒ`ƒ‡ƒL","ƒp["};
-		System.out.println(who + "‚Í" + GCP[input] + "‚ğ‚¾‚µ‚Ü‚µ‚½B");
+		String[] GCP = {"ã‚°ãƒ¼","ãƒãƒ§ã‚­","ãƒ‘ãƒ¼"};
+		System.out.println(who + "ã¯" + GCP[input] + "ã‚’ã ã—ã¾ã—ãŸã€‚");
 	}
 
-	//‚Ç‚¿‚ç‚ªŸ‚Á‚½‚Ì‚©”»’è‚·‚éƒƒ\ƒbƒh
+	//ã©ã¡ã‚‰ãŒå‹ã£ãŸã®ã‹åˆ¤å®šã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
 	public static void Judge(int x,int y){
 		if( (x==0 && y==1) || (x==1 && y==2) || (x==2 && y==0)){
-			System.out.println("‚ ‚È‚½‚ÌŸ‚¿‚Å‚·B");
+			System.out.println("ã‚ãªãŸã®å‹ã¡ã§ã™ã€‚");
 		}
 		else if( (x==0 && y==2) || (x==1 && y==0) || (x==2 && y==1)){
-			System.out.println("‚ ‚È‚½‚Ì•‰‚¯‚Å‚·B");
+			System.out.println("ã‚ãªãŸã®è² ã‘ã§ã™ã€‚");
 		}
 		else{
-			System.out.println("‚ ‚¢‚±‚Å‚·B");
+			System.out.println("ã‚ã„ã“ã§ã™ã€‚");
 		}
 	}
 
 }
+//ç·¨é›†å±¥æ­´ç¢ºèªç”¨ã‚³ãƒ¡ãƒ³ãƒˆ
